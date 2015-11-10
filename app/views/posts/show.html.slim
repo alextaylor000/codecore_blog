@@ -1,0 +1,30 @@
+h1 #{@post.title}
+p #{@post.body}
+hr
+- if can? :edit, @post
+  h3 tools
+  ul
+    li = link_to "edit", edit_post_path(@post)
+    li = link_to "delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+
+h3 new comment
+- if can? :create, Comment
+  - if @comment.errors.any?
+    p = @comment.errors.full_messages.join(", ")
+
+  = form_for [@post, @comment] do |f|
+    = f.text_area :body
+    = f.submit
+- else
+  p You must be signed in to post comments.
+
+h3 comments
+- @post.comments_by_date.each do |comment|
+  p = comment.body
+  - if can? :update, comment
+    ul
+      li = link_to "edit", edit_comment_path(comment)
+      li = link_to "delete", comment_path(comment),
+                             method: :delete,
+                             data: { confirm: "Delete this comment???" }
+  hr

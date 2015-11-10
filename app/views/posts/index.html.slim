@@ -1,0 +1,5 @@
+h1 Posts
+- @posts.each do |post|
+  div style="border: 1px solid black"
+    h5 #{post.title}
+    p = link_to "Read...", post_path(post)
