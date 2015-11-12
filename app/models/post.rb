@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
     comments.order("created_at DESC")
   end
 
-  def body_truncate(length)
+  def teaser(length)
     if length
       "#{body[0..length]}..."
     else

@@ -7,22 +7,14 @@ html
     = csrf_meta_tags
 
   body
-    nav
-      ul
-        li = link_to "Posts", posts_path
-        li = link_to "About", about_path
+    div class="container-fluid main"
+      div class="header"
+        h1 Taylormade
+        h2 A blog about things that Alex Taylor made.
 
-        - if user_signed_in?
-          li = link_to "+ New Post", new_post_path
-          li = link_to "Log out (#{current_user.first_name})", logout_path, method: :delete
-        - else
-          li = link_to "Sign up", new_user_path
-          li = link_to "Log in", login_path
+      div class="container-fluid black"
+        ul class="nav nav-pills"
+          li = link_to "archive", "#"
+          li = link_to "about", "#"
 
-    - if flash[:notice]
-      p = flash[:notice]
-
-    - if flash[:alert]
-      p = flash[:alert]
-
-    == yield
+      == yield

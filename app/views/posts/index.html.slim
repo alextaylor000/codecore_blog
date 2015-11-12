@@ -1,5 +1,8 @@
-h1 Posts
 - @posts.each do |post|
-  div style="border: 1px solid black"
-    h5 #{post.title}
-    p = link_to "Read...", post_path(post)
+  div class="panel post-showcase"
+    div class="panel-body"
+      h5 #{post.title}
+      p #{post.teaser 140}
+
+    div class="next-arrow"
+      span class="glyphicon glyphicon-chevron-down"
