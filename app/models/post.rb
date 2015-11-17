@@ -4,6 +4,10 @@ class Post < ActiveRecord::Base
   belongs_to :user
   validates :title, presence: true, uniqueness: true
 
+  def self.latest(num_posts=10)
+    all.order("created_at DESC").limit(num_posts)
+  end
+
   def comments_by_date
     comments.order("created_at DESC")
   end
