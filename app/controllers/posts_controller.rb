@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
 
   def index
-    @posts = Post.latest 15
+    @posts = Post.latest 30
   end
 
   def show
