@@ -5,14 +5,12 @@ var ready = function() {
   function getCurrentPostId(){
     // Divide users location on a page by the height of each div, rounded up to the nearest whole number.
     // Add one so that we always have a non-zero number, since the CSS we rely on is 1-indexed
-    return atId = ($(document).scrollTop() / Math.ceil(postShowcaseHeight)) + 1;
+    return ($(document).scrollTop() / Math.ceil(postShowcaseHeight)) + 1;
   };
 
 
   $(".next-arrow").on("click",function() {
     var curPostId = getCurrentPostId();
-    // TODO: Remove this line before production, this is just for troubleshooting
-    console.log("currently at ", curPostId, " scrolling pos ", $(document).scrollTop());
     // Find the offset of the top-most fully visible element.
     // If a post is even partially cut off, this will advance to the next element.
     var elementOffset = $(".posts .post-showcase:nth-child(" + (Math.round(curPostId+1)) + ")").offset();
