@@ -1,20 +1,24 @@
 doctype html
 html
   head
-    title Alex Taylor's Blog
+    title Taylormade
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   body
     div class="container-fluid main"
-      div class="header"
-        h1 Taylormade
-        h2 A blog about things that Alex Taylor made.
+      div class="navbar-fixed-top container-fluid" id="navbar"
+        div class="header"
+          h1 Taylormade
+          h2 A blog about things that Alex Taylor made.
 
-      div class="container-fluid black"
-        ul class="nav nav-pills"
-          li = link_to "archive", "#"
-          li = link_to "about", "#"
+        div class="container-fluid black"
+          ul class="nav nav-pills"
+            li = link_to "archive", "#"
+            li = link_to "about", "#"
 
       == yield
+
+    div class="next-arrow"
+      span class="glyphicon glyphicon-chevron-down jq-next-post" id="next-post"

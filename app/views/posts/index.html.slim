@@ -1,8 +1,10 @@
-- @posts.each do |post|
-  div class="panel post-showcase"
-    div class="panel-body"
-      h5 #{post.title}
-      p #{post.teaser 140}
+div class="scroller"
+  div class="posts"
+    - @posts.each_with_index do |post, index|
+      div class="panel post-showcase" id="#{index}"
+        div class="panel-body"
+          h5 #{post.title}
+          p #{post.teaser 140}
 
-    div class="next-arrow"
-      span class="glyphicon glyphicon-chevron-down"
+      /div class="next-arrow"
+        /span class="glyphicon glyphicon-chevron-down jq-next-post" id="next-post-from-#{post.id}"
