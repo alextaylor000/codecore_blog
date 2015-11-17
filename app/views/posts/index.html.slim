@@ -1,9 +1,9 @@
 div class="scroller"
   div class="posts"
     - @posts.each_with_index do |post, index|
-      div class="panel post-showcase" id="#{index}"
+      div class="panel post-showcase" id="#{index + 1}"
         div class="panel-body"
-          h5 #{post.title}
+          h5 #{index + 1}
           p #{post.teaser 140}
 
       /div class="next-arrow"

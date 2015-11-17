@@ -29,9 +29,9 @@ h2, .h2 {
 
 }
 
-.main {
-  margin-top: 200px;
-}
+// .main {
+//   margin-top: 200px;
+// }
 
 .post {
   position: relative;
@@ -45,11 +45,11 @@ h2, .h2 {
 
 .panel.post-showcase {
     position: relative;
-    min-height: 14em;
-    border: 1px solid #E4E4E4;
+    height: 14em;
+    //border: 2px solid #E4E4E4;
     border-radius: 0;
-    box-shadow: 0 0 0.25em;
-    margin-bottom: 4em;
+    // box-shadow: 0 0 0.25em;
+    //margin-bottom: 20px;
 }
 
 .panel.post-showcase h5 {
