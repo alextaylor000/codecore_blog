@@ -1,5 +1,11 @@
 h1 #{@post.title}
-p #{@post.body}
+div class="post-content"
+  p
+    span class="glyphicon glyphicon-time"
+    |  #{@post.published_date}
+  hr
+
+  p #{@post.body}
 hr
 - if can? :edit, @post
   h3 tools
@@ -7,14 +13,14 @@ hr
     li = link_to "edit", edit_post_path(@post)
     li = link_to "delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
 
-h3 new comment
+h4 New Comment
 - if can? :create, Comment
   - if @comment.errors.any?
     p = @comment.errors.full_messages.join(", ")
 
-  = form_for [@post, @comment] do |f|
-    = f.text_area :body
-    = f.submit
+  = simple_form_for [@post, @comment] do |f|
+    = f.input :body
+    = f.submit class: "btn btn-primary"
 - else
   p You must be signed in to post comments.
 

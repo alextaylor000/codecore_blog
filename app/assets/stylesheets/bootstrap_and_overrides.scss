@@ -3,19 +3,18 @@
 
 $taylor-red: #D00000;
 
-h1, .h1 {
-    font-size: 3em;
-    font-weight: 400;
+.header {
+  h1, .h1 {
+      font-size: 3em;
+      font-weight: 400;
+  }
+
+  h2, .h2 {
+      font-size: 1.15em;
+      font-weight: 200;
+      margin-top: 0;
+  }
 }
-
-
-
-h2, .h2 {
-    font-size: 1.15em;
-    font-weight: 200;
-    margin-top: 0;
-}
-
 
 .container-fluid.black {
   margin-left: -15px;
