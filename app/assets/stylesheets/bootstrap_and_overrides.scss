@@ -29,9 +29,9 @@ h2, .h2 {
 
 }
 
-// .main {
-//   margin-top: 200px;
-// }
+#content-padding {
+  height: 200px;
+}
 
 .post {
   position: relative;
@@ -70,6 +70,14 @@ h2, .h2 {
     font-size: 5em;
     max-height: 0.6em;
     width: 100%;
+}
+
+.next-arrow .arrow-container {
+  width: 100px;
+  height: 80px;
+  display: inline-block;
+  border-radius: 22px;
+  background: rgba(1,1,1,0.2);
 }
 
 .next-arrow span {

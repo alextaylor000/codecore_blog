@@ -8,6 +8,7 @@ html
 
   body
     div class="container-fluid main"
+      /navbar
       div class="navbar-fixed-top container-fluid" id="navbar"
         div class="header"
           h1 Taylormade
@@ -18,7 +19,11 @@ html
             li = link_to "archive", "#"
             li = link_to "about", "#"
 
+      / padding
+      div#content-padding
+
       == yield
 
     div class="next-arrow"
-      span class="glyphicon glyphicon-chevron-down jq-next-post" id="next-post"
+      div class="arrow-container"
+        span class="glyphicon glyphicon-chevron-down jq-next-post" id="next-post"
