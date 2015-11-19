@@ -1,5 +1,19 @@
 .post-content {
+  h6 {
+    color: #9A9A9A;
+  }
+
   p {
     color: #676767;
   }
+}
+
+.comments-title {
+  margin-top: 0;
+}
+
+.comments-sep {
+  border: 5px solid whitesmoke;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

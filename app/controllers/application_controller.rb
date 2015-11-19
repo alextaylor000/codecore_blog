@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  def user_is_admin?
+    current_user.admin?
+  end
+
   # for certain pages, redirect the user if they're not signed in
   def authenticate_user
     unless user_signed_in?
@@ -25,6 +29,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :user_signed_in?
+  helper_method :user_is_admin?
   helper_method :authenticate_user
 
 end

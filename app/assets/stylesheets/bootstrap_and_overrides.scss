@@ -3,6 +3,15 @@
 
 $taylor-red: #D00000;
 
+.header h1 a  {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .header {
   h1, .h1 {
       font-size: 3em;
@@ -72,7 +81,8 @@ $taylor-red: #D00000;
         }
     }
     h5:hover {
-      text-shadow: 0 0 0.0425em $taylor-red;
+      text-decoration: none;
+      text-shadow: 0 2px 1.0425em #C3C2C2;
     }
 }
 
@@ -109,11 +119,63 @@ $taylor-red: #D00000;
   text-shadow: 0 0 0.0625em #A5A5A5;
 }
 
+.alert {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 0 5px #C5C5C5;
+}
+
+.alert-info {
+  background-color: #2B82D0;
+  color: #FFFFFF;
+}
+
+.alert-danger {
+  background-color: #D02B2B;
+  color: #FFFFFF;
+}
+
+.form-mobile input.btn.btn-primary {
+  width: 100%;
+}
+
+/* About */
+.photo img {
+  width: 9em;
+  margin-right: 1em;
+}
+
+
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
+  .comments-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  textarea.form-control.comment-input {
+    height: 8em;
+  }
+
+  .form-mobile input.btn.btn-primary {
+    width: auto;
+  }
+
+  /* About */
+  // #about-content {
+  //   display: block;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
+
+  .photo img {
+    width: 14em;
+    margin-right: 1em;
+  }
+
 
 }
 

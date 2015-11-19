@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
     comments.order("created_at DESC")
   end
 
+  # TODO: refactor-published-date
   def published_date
     created_at.to_formatted_s(:long_ordinal)
   end

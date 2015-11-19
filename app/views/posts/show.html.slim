@@ -1,36 +1,48 @@
 h1 #{@post.title}
 div class="post-content"
-  p
+  h6
     span class="glyphicon glyphicon-time"
     |  #{@post.published_date}
   hr
 
   p #{@post.body}
-hr
+
+
 - if can? :edit, @post
   h3 tools
   ul
     li = link_to "edit", edit_post_path(@post)
     li = link_to "delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
 
-h4 New Comment
-- if can? :create, Comment
-  - if @comment.errors.any?
-    p = @comment.errors.full_messages.join(", ")
+div.comments-sep
 
-  = simple_form_for [@post, @comment] do |f|
-    = f.input :body
-    = f.submit class: "btn btn-primary"
-- else
-  p You must be signed in to post comments.
+div.col-xs-12.col-sm-3
+  div.row
+    h4.comments-title Comments
+    - if can? :create, Comment
 
-h3 comments
-- @post.comments_by_date.each do |comment|
-  p = comment.body
-  - if can? :update, comment
-    ul
-      li = link_to "edit", edit_comment_path(comment)
-      li = link_to "delete", comment_path(comment),
-                             method: :delete,
-                             data: { confirm: "Delete this comment???" }
-  hr
+      = simple_form_for [@post, @comment] do |f|
+        = f.input :body, label: false, input_html: { class: "comment-input" }
+        = f.submit "Post", class: "btn btn-primary"
+    - else
+      p You must be signed in to post comments.
+
+div.col-xs-12.col-sm-9
+  div.row.comments-content
+    div.comments-sep.visible-xs
+
+
+    - @post.comments_by_date.each do |comment|
+      p = comment.body
+      h6
+        span.comment-author    = comment.published_by
+        | &nbsp;&middot;&nbsp;
+        span.comment-published = comment.published_date
+
+      - if can? :update, comment
+        ul
+          li = link_to "edit", edit_comment_path(comment)
+          li = link_to "delete", comment_path(comment),
+                                 method: :delete,
+                                 data: { confirm: "Delete this comment???" }
+      hr

@@ -10,17 +10,9 @@ html
   body
     div class="container-fluid main"
       /navbar
-      div class="navbar-fixed-top container-fluid" id="navbar"
-        div class="header"
-          h1 Taylormade
-          h2 A blog about things that Alex Taylor made.
+      = render "layouts/nav"
 
-        div class="container-fluid black"
-          ul class="nav nav-pills"
-            li = link_to "archive", "#"
-            li = link_to "about", "#"
-
-      / padding
-      div#content-padding
+      /flash
+      = render "layouts/flash"
 
       == yield
