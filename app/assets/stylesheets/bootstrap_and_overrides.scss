@@ -1,16 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$taylor-red: #D00000;
+
 h1, .h1 {
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 400;
 }
 
+
+
 h2, .h2 {
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-weight: 200;
     margin-top: 0;
 }
+
 
 .container-fluid.black {
   margin-left: -15px;
@@ -25,12 +30,13 @@ h2, .h2 {
 }
 
 .nav-pills > li > a:hover {
-  color: #D00000;
+  color: $taylor-red;
 
 }
 
 #content-padding {
-  height: 200px;
+  height: 11em;
+  //height: 200px;
 }
 
 .post {
@@ -38,26 +44,39 @@ h2, .h2 {
 
 }
 
+.panel-footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+
+  h6 {
+    color: #B3B3B3;
+  }
+}
+
 .panel.post-showcase {
     position: relative;
-    height: 14em;
+    height: 17em;
     border: 2px solid #E4E4E4;
     border-radius: 0;
-    box-shadow: 0 0 0.25em;
+    box-shadow: 0 0 0.25em #D2D2D2;
     margin-bottom: 20px;
+
+    h5 {
+        padding-bottom: 0.25em;
+        border-bottom: 1px solid lighten($taylor-red, 50%);;
+        transition: text-shadow 0.5s;
+
+        a {
+          font-size: 1.5em;
+          color: $taylor-red;
+        }
+    }
+    h5:hover {
+      text-shadow: 0 0 0.0425em $taylor-red;
+    }
 }
 
-.panel.post-showcase h5 {
-    font-size: 3em;
-    color: white;
-    text-shadow: 0 0 0.0625em black;
-    transition: color 0.5s, text-shadow 0.5s;
-}
-
-.panel.post-showcase h5:hover {
-    color: #D00000;
-    text-shadow: none;
-}
 
 #navbar {
   background: white;
@@ -70,15 +89,17 @@ h2, .h2 {
     font-size: 5em;
     max-height: 0.6em;
     width: 100%;
+
+    .arrow-container {
+      width: 1.5em;
+      height: 1.1em;
+      display: inline-block;
+      border-radius: 22px;
+      background: rgba(1,1,1,0.2);
+    }
 }
 
-.next-arrow .arrow-container {
-  width: 100px;
-  height: 80px;
-  display: inline-block;
-  border-radius: 22px;
-  background: rgba(1,1,1,0.2);
-}
+
 
 .next-arrow span {
     transition: font-size 0.25s, text-shadow 0.25s;
@@ -87,4 +108,25 @@ h2, .h2 {
 .next-arrow span:hover {
   font-size: 105%;
   text-shadow: 0 0 0.0625em #A5A5A5;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  .panel.post-showcase h5 a {
+    font-size: 1.75em;
+  }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+
 }
