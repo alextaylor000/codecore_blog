@@ -25,7 +25,7 @@ var ready = function() {
 
     // Finally, smoothly scroll the amount of pixels that we had defined
     // Offset the scroll by the total height of the fixed navbar
-    $("html, body").animate({scrollTop: (roundedOffset - navbarHeight)});
+    $("html, body").animate({scrollTop: (roundedOffset - navbarHeight * 1.4)});
 
   });
 };
