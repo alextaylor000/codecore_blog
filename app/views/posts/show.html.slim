@@ -20,8 +20,15 @@ div class="post-content"
       - else
         = link_to "<span class='glyphicon glyphicon-heart-empty unfaved'></span>".html_safe, post_favourites_path(@post), method: :post
       span.post-likes-pad = @post.faves_count
-      span.glyphicon.glyphicon-tags
-      span.post-tags-pad tag1, tag2, tag3
+
+      - if @post.tags.any?
+        span.glyphicon.glyphicon-tags
+        span.post-tags-pad
+          - @post.tags.each do |t|
+            = link_to t.name, t, class: "post-tag"
+
+
+
 
 
 

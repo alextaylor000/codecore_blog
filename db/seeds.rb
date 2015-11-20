@@ -31,3 +31,9 @@ end
   end
   p.save
 end
+
+# tags
+tags = %w(ruby rails javascript css html postgres react random personal jquery)
+tags.each do |t|
+  Tag.create name: t
+end

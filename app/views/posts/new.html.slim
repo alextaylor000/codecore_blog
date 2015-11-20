@@ -1,19 +1,9 @@
 h1 New Post
-= form_for @post do |f|
-  - if @post.errors.any?
-    div
-      p Oops, you've got errors:
-      ul
-        - @post.errors.full_messages.each do |msg|
-          li #{msg}
+= simple_form_for @post, html: { class: "form-mobile" } do |f|
+  = f.input :title
+  = f.input :body
 
-  div
-    = f.label :title
-    = f.text_field :title
+  div.form-group
+    = f.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name
 
-  div
-    = f.label :body
-    = f.text_area :body
-
-  div
-    = f.submit
+  = f.submit "Post", class: "btn btn-primary"

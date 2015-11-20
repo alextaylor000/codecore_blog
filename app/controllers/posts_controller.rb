@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    post_params = params.require(:post).permit([:title, :body])
     @post = Post.new(post_params)
     @post.user = current_user
 
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    post_params = params.require(:post).permit([:title, :body])
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
@@ -46,5 +44,10 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "Post deleted."
     redirect_to posts_path
+  end
+
+  private
+  def post_params
+    params.require(:post).permit([:title, :body, tag_ids: []])
   end
 end

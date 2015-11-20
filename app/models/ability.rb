@@ -9,6 +9,7 @@ class Ability
       user == resource.user
     end
 
+    can :manage, Tag if user.admin?
 
   end
 end

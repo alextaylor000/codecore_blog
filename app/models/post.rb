@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
   include Searchable
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+
   has_many :comments, dependent: :destroy
   belongs_to :user
   validates :title, presence: true, uniqueness: true
@@ -39,6 +42,10 @@ class Post < ActiveRecord::Base
 
   def fave_for(user)
     favourites.find_by_user_id(user.id)
+  end
+
+  def tags_display
+    tags.map(&:name).sort.join(", ")
   end
 
 end
