@@ -37,13 +37,14 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "Post deleted."
     redirect_to posts_path
   end
 end

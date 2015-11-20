@@ -8,12 +8,36 @@
   }
 }
 
+.post-admin-button {
+  padding: 0 0.25em 0 0.25em;
+}
+
 .comments-title {
   margin-top: 0;
+}
+
+.post-tags-and-likes {
+  span.faved {
+    color: red;
+  }
+
+  span.unfaved {
+    color: black;
+  }
 }
 
 .comments-sep {
   border: 5px solid whitesmoke;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+span.post-likes-pad {
+    padding-left: 0.35em;
+    padding-right: 0.5em;
+}
+
+span.post-tags-pad {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }

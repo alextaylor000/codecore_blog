@@ -1,4 +1,10 @@
-h1 #{@post.title}
+h1
+  = @post.title
+  - if can? :edit, @post
+    small
+      span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_post_path(@post)
+      span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+
 div class="post-content"
   h6
     span class="glyphicon glyphicon-time"
@@ -7,12 +13,17 @@ div class="post-content"
 
   p #{@post.body}
 
+  div.post-tags-and-likes
+    p
+      - if user_signed_in? && @post.user_has_faved?(current_user)
+        = link_to "<span class='glyphicon glyphicon-heart faved'></span>".html_safe, post_favourite_path(@post, @post.fave_for(current_user)), method: :delete
+      - else
+        = link_to "<span class='glyphicon glyphicon-heart-empty unfaved'></span>".html_safe, post_favourites_path(@post), method: :post
+      span.post-likes-pad = @post.faves_count
+      span.glyphicon.glyphicon-tags
+      span.post-tags-pad tag1, tag2, tag3
 
-- if can? :edit, @post
-  h3 tools
-  ul
-    li = link_to "edit", edit_post_path(@post)
-    li = link_to "delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+
 
 div.comments-sep
 
@@ -33,16 +44,15 @@ div.col-xs-12.col-sm-9
 
 
     - @post.comments_by_date.each do |comment|
+      - if can? :update, comment
+          span.pull-right.post-admin-button = link_to link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_comment_path(comment)
+          span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, comment_path(comment),
+                                 method: :delete,
+                                 data: { confirm: "Delete this comment???" }
       p = comment.body
       h6
         span.comment-author    = comment.published_by
         | &nbsp;&middot;&nbsp;
         span.comment-published = comment.published_date
 
-      - if can? :update, comment
-        ul
-          li = link_to "edit", edit_comment_path(comment)
-          li = link_to "delete", comment_path(comment),
-                                 method: :delete,
-                                 data: { confirm: "Delete this comment???" }
       hr

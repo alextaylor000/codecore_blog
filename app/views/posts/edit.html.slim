@@ -1,19 +1,5 @@
 h1 Edit Post
-= form_for @post do |f|
-  - if @post.errors.any?
-    div
-      p Oops, you've got errors:
-      ul
-        - @post.errors.full_messages.each do |msg|
-          li #{msg}
-
-  div
-    = f.label :title
-    = f.text_field :title
-
-  div
-    = f.label :body
-    = f.text_area :body
-
-  div
-    = f.submit
+= simple_form_for @post do |f|
+  = f.input :title
+  = f.input :body
+  = f.submit "Update", class: "btn btn-primary"
