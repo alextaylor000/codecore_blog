@@ -33,6 +33,8 @@ gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'delayed_job_active_record'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -51,4 +53,5 @@ group :development do
   gem 'hirb'
   gem 'interactive_editor'
   gem 'awesome_print'
+  gem 'letter_opener'
 end

@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      Notifications.notify_owner_of_comment(@comment).deliver_later
       redirect_to post_path(@post)
     else
       render "posts/show"
