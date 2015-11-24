@@ -1,0 +1,2 @@
+$("#<%= dom_id(@comment) %>").replaceWith("<%= j render 'comment', comment: @comment, hide: true %>")
+hideCommentEdit("<%= dom_id(@comment) %>");

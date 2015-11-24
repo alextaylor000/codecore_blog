@@ -15,11 +15,7 @@ div class="post-content"
 
   div.post-tags-and-likes
     p
-      - if user_signed_in? && @post.user_has_faved?(current_user)
-        = link_to "<span class='glyphicon glyphicon-heart faved'></span>".html_safe, post_favourite_path(@post, @post.fave_for(current_user)), method: :delete
-      - else
-        = link_to "<span class='glyphicon glyphicon-heart-empty unfaved'></span>".html_safe, post_favourites_path(@post), method: :post
-      span.post-likes-pad = @post.faves_count
+      = render "favourites/display"
 
       - if @post.tags.any?
         span.glyphicon.glyphicon-tags

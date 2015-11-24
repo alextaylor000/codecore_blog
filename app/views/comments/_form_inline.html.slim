@@ -1,0 +1,19 @@
+div id="#{dom_id(@comment)}-edit" class="comment-block"
+  - if can? :update, @comment
+      span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, comment_path(@comment),
+                             method: :delete,
+                             data: { confirm: "Delete this comment?" },
+                             remote: true
+  = simple_form_for @comment, remote: true do |f|
+    p
+      = f.input :body, label: false, input_html: { class: "comment-input" }
+    h6
+      span.comment-author    = @comment.published_by
+      | &nbsp;&middot;&nbsp;
+      span.comment-published = @comment.published_date
+
+    = f.submit "Update", class: "btn btn-primary"
+    |&nbsp;&nbsp;
+    = link_to "Cancel", "javascript:hideCommentEdit('#{dom_id(@comment)}')", class: "btn btn-default", id: "comment-cancel"
+
+    hr
