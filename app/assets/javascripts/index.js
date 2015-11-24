@@ -12,7 +12,7 @@ var ready = function() {
    };
 
 
-  $(".next-arrow").on("click",function() {
+  $("html").on("click",".next-arrow", function () {
     var curPostId = getCurrentPostId();
 
     // Find the offset of the top-most fully visible element.
@@ -26,7 +26,6 @@ var ready = function() {
     // Finally, smoothly scroll the amount of pixels that we had defined
     // Offset the scroll by the total height of the fixed navbar
     $("html, body").animate({scrollTop: (roundedOffset - navbarHeight * 1.65)});
-
   });
 };
 
