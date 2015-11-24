@@ -21,13 +21,12 @@ class Post < ActiveRecord::Base
     comments.order("created_at DESC")
   end
 
-  # TODO: refactor-published-date
   def published_date
     created_at.to_formatted_s(:long_ordinal)
   end
 
-  def teaser(length)
-    if length
+  def teaser(length=140)
+    if body.length > length 
       "#{body[0..length]}..."
     else
       body
@@ -49,6 +48,10 @@ class Post < ActiveRecord::Base
 
   def tags_display
     tags.map(&:name).sort.join(", ")
+  end
+
+  def has_images?
+    images.present?
   end
 
 end

@@ -35,6 +35,7 @@ gem 'simple_form'
 
 gem 'delayed_job_active_record'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave' # for enabling multiple uploads
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

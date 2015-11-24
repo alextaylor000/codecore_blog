@@ -1,3 +1,11 @@
+.form-horizontal {
+  div.checkbox.inline {
+    .control-label {
+      text-align: left;
+    }
+  }
+}
+
 .post-content {
   h6 {
     color: #9A9A9A;
@@ -31,6 +39,11 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+.img-thumbnail {
+  margin-bottom: 16px;
+}
+
 
 span.post-likes-pad {
     padding-left: 0.35em;
