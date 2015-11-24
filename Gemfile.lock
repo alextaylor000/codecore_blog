@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 5b061c686ba8fc5fbf19ce3fecbf37e6410c1a0b
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,6 +194,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancancan (~> 1.10)
+  carrierwave!
   coffee-rails (~> 4.1.0)
   delayed_job_active_record
   faker

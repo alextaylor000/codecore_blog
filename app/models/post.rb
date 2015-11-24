@@ -6,9 +6,12 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
   validates :title, presence: true, uniqueness: true
+  validates :body, presence: true
 
   # faves
   has_many :favourites, dependent: :destroy
+
+  mount_uploaders :images, ImagesUploader # multiple selection supported!
 
   def self.latest(num_posts=10)
     all.order("created_at DESC").limit(num_posts)
