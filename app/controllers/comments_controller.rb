@@ -8,11 +8,15 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
 
-    if @comment.save
-      Notifications.notify_owner_of_comment(@comment).deliver_later
-      redirect_to post_path(@post)
-    else
-      render "posts/show"
+    respond_to do |format|
+      if @comment.save
+        Notifications.notify_owner_of_comment(@comment).deliver_later
+        format.html { redirect_to post_path(@post) }
+        format.js   { render }
+      else
+        format.html { render "posts/show" }
+        format.js   { render :create_failure }
+      end
     end
   end
 
@@ -29,7 +33,6 @@ class CommentsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy

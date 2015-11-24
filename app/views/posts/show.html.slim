@@ -27,39 +27,19 @@ div class="post-content"
           - @post.tags.each do |t|
             = link_to t.name, t, class: "post-tag"
 
-
-
-
-
-
 div.comments-sep
 
 div.col-xs-12.col-sm-3
   div.row
     h4.comments-title Comments
     - if can? :create, Comment
-
-      = simple_form_for [@post, @comment] do |f|
-        = f.input :body, label: false, input_html: { class: "comment-input" }
-        = f.submit "Post", class: "btn btn-primary"
+      = render "comments/form"
     - else
       p You must be signed in to post comments.
 
 div.col-xs-12.col-sm-9
   div.row.comments-content
     div.comments-sep.visible-xs
-
-
-    - @post.comments_by_date.each do |comment|
-      - if can? :update, comment
-          span.pull-right.post-admin-button = link_to link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_comment_path(comment)
-          span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, comment_path(comment),
-                                 method: :delete,
-                                 data: { confirm: "Delete this comment???" }
-      p = comment.body
-      h6
-        span.comment-author    = comment.published_by
-        | &nbsp;&middot;&nbsp;
-        span.comment-published = comment.published_date
-
-      hr
+    div#comments
+      - @post.comments_by_date.each do |comment|
+        = render comment
