@@ -1,10 +1,2 @@
 h1 New Post
-= simple_form_for @post, html: { class: "form-mobile" } do |f|
-  = f.input :title
-  = f.input :body
-
-  div.form-group
-    = f.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name
-    
-
-  = f.submit "Post", class: "btn btn-primary"
+= render "form"
