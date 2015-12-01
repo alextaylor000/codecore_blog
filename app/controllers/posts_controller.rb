@@ -3,6 +3,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.latest 30
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @posts }
+    end
   end
 
   def show
