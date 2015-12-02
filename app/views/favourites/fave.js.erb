@@ -1,0 +1,5 @@
+ANIMATION_END = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+$("#fave-partial").replaceWith("<%= j render 'display' %>")
+
+var animation = "animated pulse";
+$("#fave-heart").addClass(animation).one(ANIMATION_END,function(){ $(this).removeClass(animation) })

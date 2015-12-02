@@ -1,0 +1,6 @@
+span id="fave-partial"
+  - if user_signed_in? && @post.user_has_faved?(current_user)
+    = link_to "<span id='fave-heart' class='glyphicon glyphicon-heart faved'></span>".html_safe, post_favourite_path(@post, @post.fave_for(current_user)), method: :delete, remote: true
+  - else
+    = link_to "<span id='fave-heart' class='glyphicon glyphicon-heart-empty unfaved'></span>".html_safe, post_favourites_path(@post), method: :post, remote: true
+  span.post-likes-pad = @post.faves_count

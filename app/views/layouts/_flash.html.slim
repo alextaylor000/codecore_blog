@@ -1,0 +1,7 @@
+- if flash[:alert]
+  div class="alert alert-danger"
+    p = flash[:alert]
+
+- elsif flash[:notice]
+  div class="alert alert-info"
+    p = flash[:notice]

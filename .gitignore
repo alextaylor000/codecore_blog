@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore /public/assets and uploads
+/public/uploads
+/public/assets
+
+/config/initializers/_app_keys.rb

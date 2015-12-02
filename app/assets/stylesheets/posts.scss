@@ -1,0 +1,64 @@
+.form-horizontal {
+  div.checkbox.inline {
+    .control-label {
+      text-align: left;
+    }
+  }
+}
+
+.post-content {
+  h6 {
+    color: #9A9A9A;
+  }
+
+  p {
+    color: #676767;
+  }
+}
+
+.post-admin-button {
+  padding: 0 0.25em 0 0.25em;
+}
+
+.comments-title {
+  margin-top: 0;
+}
+
+.post-tags-and-likes {
+  span.faved {
+    color: red;
+  }
+
+  span.unfaved {
+    color: black;
+  }
+}
+
+.comments-sep {
+  border: 5px solid whitesmoke;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.img-thumbnail {
+  margin-bottom: 16px;
+}
+
+
+span.post-likes-pad {
+    padding-left: 0.35em;
+    padding-right: 0.5em;
+}
+
+span.post-tags-pad {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+a.post-tag {
+    margin: 0 0.15em 0 0.15em;
+    border: 1px solid #E4E4E4;
+    padding: 0.25em;
+    background: #F7F7F7;
+    border-radius: 4px;
+}

@@ -1,15 +1,18 @@
 doctype html
 html
-head
-  title Alex Taylor's Blog
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = csrf_meta_tags
+  head
+    title Taylormade
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
 
-body
-  nav
-    ul
-      li = link_to "Home", root_path
-      li = link_to "About", about_path
+  body
+    div class="container-fluid main"
+      /navbar
+      = render "layouts/nav"
 
-  == yield
+      /flash
+      = render "layouts/flash"
+
+      == yield

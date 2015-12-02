@@ -1,0 +1,15 @@
+div class="posts"
+  - @posts.each_with_index do |post, index|
+    div class="panel post-showcase" id="#{index + 1}"
+      div class="panel-body"
+        h5 = link_to post.title, post
+        p #{post.teaser 140}
+
+      div class="panel-footer"
+        h6
+          span class="glyphicon glyphicon-time"
+          |  #{post.published_date}
+
+div class="next-arrow"
+  div class="arrow-container"
+    span class="glyphicon glyphicon-chevron-down jq-next-post" id="next-post"

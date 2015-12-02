@@ -1,0 +1,15 @@
+h1 Sign up
+p To post comments, you must create an account.
+
+- if @user.errors.any?
+  p = @user.errors.full_messages.join(", ")
+
+= simple_form_for @user, html: { class: "form-mobile" } do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :password, required: true
+  = f.input :password_confirmation, required: true
+  = f.submit "Sign Up", class: "btn btn-primary"
+
+p &nbsp;

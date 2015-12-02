@@ -1,0 +1,17 @@
+- if defined?(hide)
+  - display = "display: none"
+
+div id="#{dom_id(comment)}" class="comment-block" style="#{display}"
+  - if can? :update, comment
+      span.pull-right.post-admin-button = link_to link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_comment_path(comment), remote: true
+      span.pull-right.post-admin-button = link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, comment_path(comment),
+                             method: :delete,
+                             data: { confirm: "Delete this comment?" },
+                             remote: true
+  p = comment.body
+  h6
+    span.comment-author    = comment.published_by
+    | &nbsp;&middot;&nbsp;
+    span.comment-published = comment.published_date
+
+  hr

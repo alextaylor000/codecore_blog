@@ -1,0 +1,18 @@
+= simple_form_for @post, html: { class: "form-mobile" } do |f|
+  = f.input :title
+  = f.input :body
+
+  div.form-group
+    = f.label :tags
+    = f.input :tag_ids, collection: (Tag.order(:name)), as: :check_boxes, inline_label: true, label: false
+
+    /= f.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name do |c|
+    /  = c.label do
+    /    = c.check_box
+    /    = c.text
+  div.form-group
+    = f.label :images, "Images (choose multiple)"
+    = f.file_field :images, multiple: true
+
+
+  = f.submit "Post", class: "btn btn-primary"
